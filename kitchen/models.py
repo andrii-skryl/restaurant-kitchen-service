@@ -28,7 +28,7 @@ class Cook(AbstractUser):
 class Dish(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
-    price = models.DecimalField(max_digits=7, decimal_places=2)
+    price = models.DecimalField(max_digits=7, decimal_places=2, null=True)
     dish_type = models.ForeignKey(to=DishType, on_delete=models.CASCADE)
     cooks = models.ManyToManyField(
         to=settings.AUTH_USER_MODEL,

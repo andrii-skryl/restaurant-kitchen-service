@@ -40,7 +40,7 @@ class CookExperienceUpdateForm(forms.ModelForm):
 
 
 def validate_years_of_experience(years_of_experience):
-    if not 50 < years_of_experience < 1:
+    if 50 < years_of_experience < 1:
         raise ValidationError("Value must be in a range from 1 to 50")
 
     return years_of_experience
