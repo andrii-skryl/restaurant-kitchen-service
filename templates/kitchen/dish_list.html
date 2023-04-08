@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 
+{% block title %}
+  Dishes
+{% endblock %}
+
 {% block content %}
   <h1>
     Dish list
-    <a href="{% url 'kitchen:dish-create' %}" class="btn btn-primary link-to-page">
+    <a href="{% url 'kitchen:dish-create' %}" class="btn btn-primary link-to-page" style="float: right">
       Create
     </a>
   </h1>
@@ -11,8 +15,8 @@
   {% include "includes/search_form.html" %}
 
   {% if dish_list %}
-    <table class="table">
-      <tr>
+    <table class="table table-bordered table-hover">
+      <tr style="background-color: lightgrey">
         <th>ID</th>
         <th>Name</th>
         <th>Price</th>

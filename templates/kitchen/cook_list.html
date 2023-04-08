@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block title %}
+  Cooks
+{% endblock %}
+
 {% block content %}
     <h1>
       Cook List
@@ -11,14 +15,14 @@
     {% include "includes/search_form.html" %}
 
     {% if cook_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Years of experience</th>
-      </tr>
+    <table class="table table-bordered table-hover">
+        <tr style="background-color: lightgrey">
+          <th scope="col">ID</th>
+          <th scope="col">Username</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">Years of experience</th>
+        </tr>
     {% for cook in cook_list %}
       <tr>
         <td>{{ cook.id }}</td>

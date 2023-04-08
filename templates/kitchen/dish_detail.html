@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block title %}
+  Dish's Details
+{% endblock %}
+
 {% block content %}
   <h1>
     {{ dish.name }}
@@ -15,11 +19,33 @@
   <p>Description: {{ dish.description }}</p>
   <h1>
     Cooks
+
+  {% if dish in user.dishes.all %}
+      <a href="{% url 'kitchen:assign-remove-cook' pk=dish.id %}" class="btn btn-danger link-to-page">
+        Delete me from this dish
+      </a>
+    {% else %}
+      <a href="{% url 'kitchen:assign-remove-cook' pk=dish.id %}" class="btn btn-success link-to-page">
+        Assign me to this dish
+      </a>
+    {% endif %}
   </h1>
   <hr>
-  <ul>
+
+  <table class="table table-bordered table-hover">
+
+      <tr style="background-color: lightgrey">
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+
     {% for cook in dish.cooks.all %}
-      <li>{{ cook.username }} ({{ cook.first_name }} {{ cook.last_name }})</li>
-    {% endfor %}
-  </ul>
+      <tr>
+        <td>{{ cook.username }}</td>
+        <td>{{ cook.first_name }}</td>
+        <td>{{ cook.last_name }}</td>
+      </tr>
+      {% endfor %}
+  </table>
 {% endblock %}

@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block title %}
+  Dish Types
+{% endblock %}
+
 {% block content %}
   <h1>
     Dish Type List
@@ -11,8 +15,8 @@
   {% include "includes/search_form.html" %}
 
   {% if dish_type_list %}
-    <table class="table">
-      <tr>
+    <table class="table table-bordered table-hover">
+      <tr style="background-color: lightgrey">
         <th>ID</th>
         <th>Name</th>
         <th>Update</th>
