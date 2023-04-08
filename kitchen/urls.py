@@ -1,8 +1,23 @@
 from django.urls import path
 
-from kitchen.views import index, DishTypeListView, DishTypeCreateView, DishTypeUpdateView, DishTypeDeleteView, \
-    DishListView, DishDetailView, DishCreateView, DishUpdateView, DishDeleteView, assign_remove_cook, CookListView, \
-    CookDetailView, CookCreateView, CookDeleteView, CookExperienceUpdateView
+from kitchen.views import (
+    index,
+    DishTypeListView,
+    DishTypeCreateView,
+    DishTypeUpdateView,
+    DishTypeDeleteView,
+    DishListView,
+    DishDetailView,
+    DishCreateView,
+    DishUpdateView,
+    DishDeleteView,
+    assign_remove_cook,
+    CookListView,
+    CookDetailView,
+    CookCreateView,
+    CookDeleteView,
+    CookExperienceUpdateView
+)
 
 urlpatterns = [
     path("", index, name="index"),
@@ -29,8 +44,16 @@ urlpatterns = [
     path("dishes/", DishListView.as_view(), name="dish-list"),
     path("dishes/<int:pk>/", DishDetailView.as_view(), name="dish-detail"),
     path("dishes/create/", DishCreateView.as_view(), name="dish-create"),
-    path("dishes/<int:pk>/update/", DishUpdateView.as_view(), name="dish-update"),
-    path("dishes/<int:pk>/delete/", DishDeleteView.as_view(), name="dish-delete"),
+    path(
+        "dishes/<int:pk>/update/",
+        DishUpdateView.as_view(),
+        name="dish-update"
+    ),
+    path(
+        "dishes/<int:pk>/delete/",
+        DishDeleteView.as_view(),
+        name="dish-delete"
+    ),
     path(
         "dishes/<int:pk>/assign-remove/",
         assign_remove_cook,
