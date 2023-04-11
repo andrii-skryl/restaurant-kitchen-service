@@ -1,6 +1,6 @@
 # restaurant-kitchen-service
 
-This project was created for managing restaurant's kitchen which combines relations between cooks, dishes witch they make, and dish types that every dish is related to.
+This project was created for managing restaurant's kitchen which combines relations between cooks, dishes which they make, and dish types that every dish is related to.
 
 Using this project you can create, update and delete samples of each object - cook, dish type and dish.
 Also, you can search through the lists of existing objects by their name (dish types and dishes) and by username (cooks).
