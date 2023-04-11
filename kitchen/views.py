@@ -1,9 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
-from django.views import generic
+from django.views import generic, View
 
 from kitchen.forms import (
     DishForm,
@@ -178,13 +178,13 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("kitchen:cook-list")
 
 
-@login_required
-def assign_remove_cook(request, pk):
-    dish = get_object_or_404(Dish, pk=pk)
+class DishAssignRemoveView(LoginRequiredMixin, View):
+    def post(self, request, pk):
+        dish = get_object_or_404(Dish, pk=pk)
+        if request.user in dish.cooks.all():
+            dish.cooks.remove(request.user)
+        else:
+            dish.cooks.add(request.user)
+        dish.save()
 
-    if request.user in dish.cooks.all():
-        dish.cooks.remove(request.user)
-    else:
-        dish.cooks.add(request.user)
-
-    return HttpResponseRedirect(reverse("kitchen:dish-detail", args=[pk]))
+        return HttpResponseRedirect(reverse("kitchen:dish-detail", args=[dish.id]))
