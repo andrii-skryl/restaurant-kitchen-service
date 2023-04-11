@@ -41,5 +41,6 @@ class Dish(models.Model):
         verbose_name_plural = "dishes"
 
     def __str__(self):
-        return f"{self.name} (price: {self.price}, " \
-               f"type: {self.dish_type.name})"
+        return (
+            f"{self.name} (price: {self.price}, type: {self.dish_type.name})"
+        )
