@@ -26,27 +26,27 @@
       {% for dish_type in dish_type_list %}
         <tr>
           <td>
-              {{ dish_type.id }}
+            {{ dish_type.id }}
           </td>
           <td>
-              {{ dish_type.name }}
+            {{ dish_type.name }}
           </td>
           <td>
-              <a href="{% url 'kitchen:dish-type-update' pk=dish_type.id %}">
-                Update
-              </a>
-            </td>
-            <td>
-              <a style="color: red"
-                href="{% url 'kitchen:dish-type-delete' pk=dish_type.id %}">
-                Delete
-              </a>
-            </td>
+            <a href="{% url 'kitchen:dish-type-update' pk=dish_type.id %}">
+              Update
+            </a>
+          </td>
+          <td>
+            <a style="color: red"
+               href="{% url 'kitchen:dish-type-delete' pk=dish_type.id %}">
+              Delete
+            </a>
+          </td>
         </tr>
       {% endfor %}
     </table>
 
   {% else %}
-      <p>There are no dish types in the service.</p>
+    <p>There are no dish types in the service.</p>
   {% endif %}
 {% endblock %}

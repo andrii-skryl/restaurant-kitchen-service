@@ -31,25 +31,25 @@
             <a href="{% url 'kitchen:dish-detail' pk=dish.id %}">{{ dish.id }}</a>
           </td>
           <td>
-              {{ dish.name }}
+            {{ dish.name }}
           </td>
           <td>
-              {{ dish.price }}
+            {{ dish.price }}
           </td>
           <td>
-              {{ dish.dish_type.name }}
+            {{ dish.dish_type.name }}
           </td>
           <td>
-              <a href="{% url 'kitchen:dish-update' pk=dish.id %}">
-                Update
-              </a>
-            </td>
-            <td>
-              <a style="color: red"
-                href="{% url 'kitchen:dish-delete' pk=dish.id %}">
-                Delete
-              </a>
-            </td>
+            <a href="{% url 'kitchen:dish-update' pk=dish.id %}">
+              Update
+            </a>
+          </td>
+          <td>
+            <a style="color: red"
+               href="{% url 'kitchen:dish-delete' pk=dish.id %}">
+              Delete
+            </a>
+          </td>
         </tr>
       {% endfor %}
     </table>

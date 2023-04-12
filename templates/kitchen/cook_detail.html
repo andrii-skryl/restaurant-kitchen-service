@@ -25,21 +25,21 @@
   <div class="ml-3">
     <h4>Dishes</h4>
 
-      <table class="table table-bordered table-hover">
-            <tr style="background-color: lightgrey">
-              <th scope="col">Name</th>
-              <th scope="col">Type</th>
-              <th scope="col">ID</th>
-            </tr>
+    <table class="table table-bordered table-hover">
+      <tr style="background-color: lightgrey">
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">ID</th>
+      </tr>
       {% for dish in cook.dishes.all %}
-          <tr>
-            <td>{{ dish.name }}</td>
-            <td>{{ dish.dish_type.name }}</td>
-            <td>{{ dish.id }}</td>
-          </tr>
+        <tr>
+          <td>{{ dish.name }}</td>
+          <td>{{ dish.dish_type.name }}</td>
+          <td>{{ dish.id }}</td>
+        </tr>
 
-    {% empty %}
-      <p>No dishes!</p>
-    {% endfor %}
+      {% empty %}
+        <p>No dishes!</p>
+      {% endfor %}
   </div>
 {% endblock %}

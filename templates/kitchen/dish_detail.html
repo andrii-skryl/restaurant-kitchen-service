@@ -35,11 +35,11 @@
 
   <table class="table table-bordered table-hover">
 
-      <tr style="background-color: lightgrey">
-        <th>Username</th>
-        <th>First name</th>
-        <th>Last name</th>
-      </tr>
+    <tr style="background-color: lightgrey">
+      <th>Username</th>
+      <th>First name</th>
+      <th>Last name</th>
+    </tr>
 
     {% for cook in dish.cooks.all %}
       <tr>
@@ -47,6 +47,6 @@
         <td>{{ cook.first_name }}</td>
         <td>{{ cook.last_name }}</td>
       </tr>
-      {% endfor %}
+    {% endfor %}
   </table>
 {% endblock %}
