@@ -8,7 +8,7 @@ from django.views import generic, View
 from kitchen.forms import (
     DishForm,
     CookCreationForm,
-    CookExperienceUpdateForm,
+    CookUpdateForm,
     DishTypeSearchForm,
     DishSearchForm,
     CookSearchForm
@@ -167,9 +167,9 @@ class CookCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("kitchen:cook-list")
 
 
-class CookExperienceUpdateView(LoginRequiredMixin, generic.UpdateView):
+class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Cook
-    form_class = CookExperienceUpdateForm
+    form_class = CookUpdateForm
     success_url = reverse_lazy("kitchen:cook-list")
 
 

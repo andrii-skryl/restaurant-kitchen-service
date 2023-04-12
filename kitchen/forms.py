@@ -32,10 +32,10 @@ class CookCreationForm(UserCreationForm):
         )
 
 
-class CookExperienceUpdateForm(forms.ModelForm):
+class CookUpdateForm(forms.ModelForm):
     class Meta:
         model = Cook
-        fields = ["years_of_experience"]
+        fields = ["first_name", "last_name", "years_of_experience"]
 
     def clean_years_of_experience(self):
         return validate_years_of_experience(
