@@ -13,7 +13,11 @@ Also, you can search through the lists of existing objects by their name (dish t
 git clone https://github.com/andrii-skryl/restaurant-kitchen-service
 ```
 
-2. Open this project.
+2. Change directory ot the root project folder:
+
+```
+cd restaurant-kitchen-service
+```
 
 3. Install venv, with the next command:
 
@@ -43,12 +47,17 @@ pip install -r requirements.txt
 5. Create .env file in the project's root directory.
 6. Write a SECRET_KEY environmental variable inside .env file (example of how it should be written you can find at ".env_sample" file) 
 
-5. Run the server:
+7. Run migrations into db:
+
+```
+python manage.py migrate
+```
+
+8. Run the server:
 
 ```
 python manage.py runserver
 ```
-
-7. To use the website you will need to sign in into the system. Use the next login and password:
+9. To use the website you will need to sign in into the system. Use the next login and password:
   - Login: `test_user`
   - Password: `user12345`
