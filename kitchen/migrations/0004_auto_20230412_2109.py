@@ -16,6 +16,7 @@ def reverse_func(apps, schema_editor):
 class Migration(migrations.Migration):
     dependencies = [
         ("kitchen", "0003_alter_dish_price"),
+        ("sessions", "0001_initial"),
     ]
 
     operations = [RunPython(func, reverse_func)]
