@@ -5,6 +5,10 @@ This project was created for managing restaurant's kitchen which combines relati
 Using this project you can create, update and delete samples of each object - cook, dish type and dish.
 Also, you can search through the lists of existing objects by their name (dish types and dishes) and by username (cooks).
 
+## Check it out!
+
+[Kitchen Service project deployed to Render](https://restaurant-kitchen-service-44uq.onrender.com/)
+
 ## Set up
 
 1. Copy this repository on your PC using the next command in your IDEA terminal:
