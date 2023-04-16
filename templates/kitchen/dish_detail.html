@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Dish's Details
+{% endblock %}
+
+{% block content %}
+  <h1>
+    {{ dish.name }}
+    <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+
+    <a href="{% url 'kitchen:dish-update' pk=dish.id %}" class="btn btn-secondary link-to-page">
+      Update
+    </a>
+  </h1>
+  <p>Dish type: {{ dish.dish_type.name }}</p>
+  <p>Description: {{ dish.description }}</p>
+  <h1>
+    Cooks
+
+    <form method="post" action="{% url 'kitchen:assign-remove-cook' pk=dish.pk %}" style="display: inline;">
+      {% csrf_token %}
+      {% if dish in user.dishes.all %}
+        <button type="submit" class="btn btn-secondary link-to-page">Delete me from this dish</button>
+      {% else %}
+        <button type="submit" class="btn btn-success link-to-page">Assign me to this dish</button>
+      {% endif %}
+    </form>
+
+  </h1>
+
+  <hr>
+
+  <table class="table table-bordered table-hover">
+
+    <tr style="background-color: lightgrey">
+      <th>Username</th>
+      <th>First name</th>
+      <th>Last name</th>
+    </tr>
+
+    {% for cook in dish.cooks.all %}
+      <tr>
+        <td>{{ cook.username }}</td>
+        <td>{{ cook.first_name }}</td>
+        <td>{{ cook.last_name }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

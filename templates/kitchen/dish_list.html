@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Dishes
+{% endblock %}
+
+{% block content %}
+  <h1>
+    Dish List
+    <a href="{% url 'kitchen:dish-create' %}" class="btn btn-primary link-to-page" style="float: right">
+      Create
+    </a>
+  </h1>
+
+  {% include "includes/search_form.html" %}
+
+  {% if dish_list %}
+    <table class="table table-bordered table-hover">
+      <tr style="background-color: lightgrey">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Dish type</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+      {% for dish in dish_list %}
+        <tr>
+          <td>
+            <a href="{% url 'kitchen:dish-detail' pk=dish.id %}">{{ dish.id }}</a>
+          </td>
+          <td>
+            {{ dish.name }}
+          </td>
+          <td>
+            {{ dish.price }}
+          </td>
+          <td>
+            {{ dish.dish_type.name }}
+          </td>
+          <td>
+            <a href="{% url 'kitchen:dish-update' pk=dish.id %}">
+              Update
+            </a>
+          </td>
+          <td>
+            <a style="color: red"
+               href="{% url 'kitchen:dish-delete' pk=dish.id %}">
+              Delete
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no dishes in kitchen</p>
+  {% endif %}
+{% endblock %}
